@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Article views
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Filtered Article views</h1>
+    <form method="get">
+        <label for="minViews">Szűrés</label>
+        <input type="number" name="minViews">
+        <button type="submit">szűrés</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>views</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% articleViews.forEach(article => { %>
+                <tr>
+                    <td>
+                        <a href=<%= article.url %>><%= article.title %></a>
+                    </td>
+                    <td><%= article.views %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

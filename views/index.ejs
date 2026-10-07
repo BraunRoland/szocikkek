@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Article views
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Article views</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>views</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% articleViews.forEach(article => { %>
+                <tr  class= <%= article.views > 1000? "popular":"" %>>
+                    <td>
+                        <a href=<%= article.url %>><%= article.title %></a>
+                    </td>
+                    <td><%= article.views %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <a href="/filter">Szürés</a><br>
+    <a href="/new">Új adat</a>
+</body>
+</html>
