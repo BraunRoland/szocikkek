@@ -15,5 +15,8 @@
         <input type="number" name="views"> <br>
         <button type="submit">Új adat</button>
     </form>
+    <% if(locals.success) { %>
+        <p style="color: green">Sikeres létrehozás</p>
+    <% } %>
 </body>
 </html>

@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Query, Render } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
 import { articleView } from './articleview.js';
+import { CreateArticleViewDto } from './createarticleview.dto.js';
 
 @Controller()
 export class AppController {
@@ -87,7 +88,15 @@ export class AppController {
   }
 
   @Post('new')
-  newData(@Body: ) {
-
+  newData(@Body() body: CreateArticleViewDto ) {
+    const newArticle: articleView = {
+      title: body.title,
+      url: body.url,
+      views: parseInt(body.views)
+    }
+    this.articleViews.push(newArticle);
+    return {
+      success: true
+    }
   }
 }
